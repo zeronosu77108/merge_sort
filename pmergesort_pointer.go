@@ -68,8 +68,8 @@ func merge_sort(values *[]int, start int, stop int, id int) {
 			merge(values, start , stop)
 		}
 	} else {
-		sort.Ints((*values)[start:stop])	// 早いソート
-		//bubble_sort(values,start,stop)	// 遅いソート
+		sort.Ints((*values)[start:stop+1])	// 早いソート
+		//bubble_sort(values,start,stop+1)	// 遅いソート
 	}
 	return
 }
@@ -93,12 +93,13 @@ func main() {
 	for i := 0; i < N; i++ {
 		values[i] = r.Intn(N)
 	}
+	fmt.Println(values)	// 結果確認用
 
 	// ソート
 	log.Print("Start")
 	merge_Sort(&values, N-1)
 	log.Print("end")
-	//fmt.Println(values)	// 結果確認用
+	fmt.Println(values)	// 結果確認用
 }
 
 
